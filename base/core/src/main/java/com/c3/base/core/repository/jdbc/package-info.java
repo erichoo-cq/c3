@@ -10,4 +10,4 @@
  * @see
  * modify content------------author------------date
  */
-package main.java.com.c3.base.core.repository.jdbc;
+package com.c3.base.core.repository.jdbc;

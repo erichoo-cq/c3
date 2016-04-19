@@ -10,4 +10,4 @@
  * @see
  * modify content------------author------------date
  */
-package main.java.com.c3.base.core.dict;
+package com.c3.base.core.dict;
