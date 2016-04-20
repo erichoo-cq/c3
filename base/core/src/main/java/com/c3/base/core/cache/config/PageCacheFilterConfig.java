@@ -17,9 +17,6 @@ public class PageCacheFilterConfig {
       PageCacheFilter pageCacheFilter = new PageCacheFilter();
       beanFactory.autowireBean(pageCacheFilter);
       registration.setFilter(pageCacheFilter);
-      
-      
-      
       registration.addUrlPatterns("/myfitlerpath/*");
       return registration;
    }
