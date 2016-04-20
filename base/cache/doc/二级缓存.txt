@@ -1,0 +1,4 @@
+1,在配置文件中打开二级缓存，参考applicaiton.yml中的
+          region.factory_class: com.esan.base.cache.ehcache.EhCacheRegionFactory
+          use_second_level_cache: true
+2,在实体类上加入注解@Cache，@L2CacheEhcache

@@ -1,0 +1,2 @@
+1,在配置文件中打开查询缓存，参考application.yml中的use_query_cache: true
+2,在实体类上加入注解@EnableQueryCache即可开启查询缓存
