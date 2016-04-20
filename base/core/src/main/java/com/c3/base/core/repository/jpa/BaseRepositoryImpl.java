@@ -12,14 +12,14 @@ import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import com.esan.base.cache.annotation.EnableQueryCache;
-import com.esan.base.coredata.entity.BaseEntity;
-import com.esan.base.coredata.entity.EsanPageRequest;
-import com.esan.base.coredata.repository.qlhelper.OrderBy;
-import com.esan.base.coredata.repository.qlhelper.ParamHelper;
-import com.esan.base.coredata.repository.qlhelper.QlHelper;
-import com.esan.base.coredata.repository.qlhelper.Set;
-import com.esan.base.coredata.repository.qlhelper.Where;
+import com.c3.base.cache.annotation.EnableQueryCache;
+import com.c3.base.core.repository.jpa.entity.BaseEntity;
+import com.c3.base.core.repository.jpa.entity.C3PageRequest;
+import com.c3.base.core.repository.jpa.qlhelper.OrderBy;
+import com.c3.base.core.repository.jpa.qlhelper.ParamHelper;
+import com.c3.base.core.repository.jpa.qlhelper.QlHelper;
+import com.c3.base.core.repository.jpa.qlhelper.Set;
+import com.c3.base.core.repository.jpa.qlhelper.Where;
 
 @NoRepositoryBean
 public class BaseRepositoryImpl<E extends BaseEntity<ID>, ID extends Serializable> extends SimpleJpaRepository<E, ID>
@@ -171,23 +171,23 @@ public class BaseRepositoryImpl<E extends BaseEntity<ID>, ID extends Serializabl
    }
 
    @Override
-   public List<E> findAll(EsanPageRequest page) throws Exception {
+   public List<E> findAll(C3PageRequest page) throws Exception {
       return findAll(page, null, null);
    }
 
    @Override
-   public List<E> findAll(EsanPageRequest page, Where where) throws Exception {
+   public List<E> findAll(C3PageRequest page, Where where) throws Exception {
       return findAll(page, where, null);
    }
 
    @Override
-   public List<E> findAll(EsanPageRequest page, OrderBy orderBy) throws Exception {
+   public List<E> findAll(C3PageRequest page, OrderBy orderBy) throws Exception {
       return findAll(page, null, orderBy);
    }
 
    @Override
    @SuppressWarnings("unchecked")
-   public List<E> findAll(EsanPageRequest page, Where where, OrderBy orderBy) throws Exception {
+   public List<E> findAll(C3PageRequest page, Where where, OrderBy orderBy) throws Exception {
       if (page != null) {
          page.setTotalRecords(getRecordsCount(where).intValue());
       }
@@ -239,7 +239,7 @@ public class BaseRepositoryImpl<E extends BaseEntity<ID>, ID extends Serializabl
       return (Long) query.getSingleResult();
    }
 
-   private void setPageParams(Query query, EsanPageRequest page) {
+   private void setPageParams(Query query, C3PageRequest page) {
       if (page != null) {
          int firstIndex = page.getPageNumber() * page.getPageSize();
          int maxResult = page.getPageSize();

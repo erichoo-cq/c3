@@ -9,6 +9,8 @@ import javax.persistence.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
+import com.c3.base.core.repository.jpa.entity.BaseEntity;
+import com.c3.base.core.repository.jpa.entity.C3PageRequest;
 import com.c3.base.core.repository.jpa.qlhelper.OrderBy;
 import com.c3.base.core.repository.jpa.qlhelper.Set;
 import com.c3.base.core.repository.jpa.qlhelper.Where;
@@ -21,7 +23,7 @@ public interface BaseRepository<E extends BaseEntity<ID>, ID extends Serializabl
    public Query getSqlQuery(String sql);
 
    public void clear();
-   
+
    @SuppressWarnings("unchecked")
    public void delete(ID... ids) throws Exception;
 
@@ -55,13 +57,13 @@ public interface BaseRepository<E extends BaseEntity<ID>, ID extends Serializabl
 
    public List<E> findAll(Where where, OrderBy orderBy) throws Exception;
 
-   public List<E> findAll(EsanPageRequest page) throws Exception;
+   public List<E> findAll(C3PageRequest page) throws Exception;
 
-   public List<E> findAll(EsanPageRequest page, Where where) throws Exception;
+   public List<E> findAll(C3PageRequest page, Where where) throws Exception;
 
-   public List<E> findAll(EsanPageRequest page, OrderBy orderBy) throws Exception;
+   public List<E> findAll(C3PageRequest page, OrderBy orderBy) throws Exception;
 
-   public List<E> findAll(EsanPageRequest page, Where where, OrderBy orderBy) throws Exception;
+   public List<E> findAll(C3PageRequest page, Where where, OrderBy orderBy) throws Exception;
 
    public List<E> findAllWithQl(String ql) throws Exception;
 
