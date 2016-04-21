@@ -3,6 +3,14 @@ package com.c3.base.core.repository.jpa.entity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+/**
+ * 
+ * description:对Pageable的扩展
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:35:59
+ * @see Pageable
+ */
 public class C3PageRequest implements Pageable {
 
    private final Sort sort;

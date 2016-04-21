@@ -26,7 +26,7 @@ apply plugin: 'spring-boot'
 sourceCompatibility = 1.7
 
 jar {
-    baseName = 'c3-base-core'
+    baseName = 'c3-base-cache'
     version =  '1.0.0'
 }
 

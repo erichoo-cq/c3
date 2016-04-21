@@ -21,6 +21,14 @@ import com.c3.base.core.repository.jpa.qlhelper.QlHelper;
 import com.c3.base.core.repository.jpa.qlhelper.Set;
 import com.c3.base.core.repository.jpa.qlhelper.Where;
 
+/**
+ * 
+ * description:BaseRepository实现
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:34:39
+ * @see BaseRepository
+ */
 @NoRepositoryBean
 public class BaseRepositoryImpl<E extends BaseEntity<ID>, ID extends Serializable> extends SimpleJpaRepository<E, ID>
       implements BaseRepository<E, ID> {

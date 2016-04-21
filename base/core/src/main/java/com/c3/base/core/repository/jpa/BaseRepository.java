@@ -15,6 +15,14 @@ import com.c3.base.core.repository.jpa.qlhelper.OrderBy;
 import com.c3.base.core.repository.jpa.qlhelper.Set;
 import com.c3.base.core.repository.jpa.qlhelper.Where;
 
+/**
+ * 
+ * description:扩展JpaRepository,增加了通用的方法
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:33:40
+ * @see modify content------------author------------date
+ */
 @NoRepositoryBean
 public interface BaseRepository<E extends BaseEntity<ID>, ID extends Serializable> extends JpaRepository<E, ID> {
 

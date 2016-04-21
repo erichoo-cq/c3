@@ -1,5 +1,13 @@
 package com.c3.base.core.repository.jpa.qlhelper;
 
+/**
+ * 
+ * description:jpql set语句的封装
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:38:27
+ * @see modify content------------author------------date
+ */
 public class Set extends ParamHelper {
 
    @Override

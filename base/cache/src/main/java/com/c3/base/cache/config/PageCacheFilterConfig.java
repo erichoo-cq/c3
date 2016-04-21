@@ -7,6 +7,14 @@ import org.springframework.context.annotation.Bean;
 
 import com.c3.base.cache.web.PageCacheFilter;
 
+/**
+ * 
+ * description:注册页面缓存过滤器
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:31:30
+ * @see modify content------------author------------date
+ */
 public class PageCacheFilterConfig {
 
    private @Autowired AutowireCapableBeanFactory beanFactory;
