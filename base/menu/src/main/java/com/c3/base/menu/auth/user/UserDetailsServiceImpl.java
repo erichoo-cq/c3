@@ -1,8 +1,3 @@
-/**
- * Created on 2015年11月16日
- *
- * Copyright(c) Chongqing Communication Industry Services Co.LTD, 2015.  All rights reserved. 
- */
 package com.c3.base.menu.auth.user;
 
 import java.util.Collection;
@@ -18,18 +13,15 @@ import org.apache.shiro.authc.DisabledAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.c3.base.core.jdbc.BaseJdbcTemplate;
-import com.c3.base.core.shiro.UserDetails;
-import com.c3.base.core.shiro.service.IUserDetailsService;
-import com.c3.base.menu.auth.dao.repository.SmUserRepository;
-import com.c3.base.menu.auth.entity.C3SmPerson;
-import com.c3.base.menu.auth.entity.C3SmUser;
+import com.c3.base.core.permission.shiro.UserDetails;
+import com.c3.base.core.permission.shiro.service.IUserDetailsService;
+import com.c3.base.core.repository.jdbc.BaseJdbcTemplate;
+import com.c3.base.model.entity.sm.C3SmPerson;
+import com.c3.base.model.entity.sm.C3SmUser;
+import com.c3.base.model.repository.sm.SmUserRepository;
 import com.google.common.base.Optional;
 import com.google.common.collect.Sets;
 
-/**
- * @author qiuxj@crunii.com
- */
 @Service
 @Transactional
 public class UserDetailsServiceImpl implements IUserDetailsService<Integer, User> {
@@ -71,12 +63,6 @@ public class UserDetailsServiceImpl implements IUserDetailsService<Integer, User
 		return new UserDetailsImpl(user, this.getRoles(user), this.getPermissions(user));
 	}
 
-	/**
-	 * 获取用户角色
-	 * 
-	 * @param user
-	 * @return
-	 */
 	private Collection<String> getRoles(User user) {
 		if (ArrayUtils.contains(SUPER_USER, user.getUserName())) {
 			return Collections.unmodifiableSet(ALL_ROLES);

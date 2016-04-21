@@ -1,14 +1,9 @@
-/**
- * Created on 2015年11月16日
- *
- * Copyright(c) Chongqing Communication Industry Services Co.LTD, 2015.  All rights reserved. 
- */
 package com.c3.base.menu.auth.user;
 
 import java.util.Collection;
 import java.util.Collections;
 
-import com.c3.base.core.shiro.UserDetails;
+import com.c3.base.core.permission.shiro.UserDetails;
 import com.google.common.base.MoreObjects;
 
 public class UserDetailsImpl implements UserDetails<Integer, User> {
