@@ -8,8 +8,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.c3.base.cache.annotation.L2CacheEhcache;
-
-import src.main.java.com.c3.base.core.repository.jpa.entity.BaseEntity;
+import com.c3.base.core.repository.jpa.entity.BaseEntity;
 
 /**
  * 
