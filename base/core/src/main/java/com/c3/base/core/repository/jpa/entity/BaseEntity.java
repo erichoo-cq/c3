@@ -12,7 +12,12 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.domain.Persistable;
 
 /**
- * @author heshan
+ * 
+ * description:基础实体类
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:35:28
+ * @see modify content------------author------------date
  */
 @MappedSuperclass
 public class BaseEntity<ID extends Serializable> implements Persistable<ID> {
