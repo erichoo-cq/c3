@@ -1,0 +1,50 @@
+info:
+  app_name: esan::base::dictionary
+  app_version: 1.0.0
+server:
+  port: 8080
+spring:
+  aop:
+    auto: true
+    proxy-target-class: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cms
+    username: postgres
+    password: root
+    initialSize: 1
+    maxActive: 30
+    minIdle: 1
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    validationQuery: SELECT 1
+    filters: wall,stat
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+  jpa:
+    database_platform: org.hibernate.dialect.PostgreSQL9Dialect
+    show_sql: true
+    generate_ddl: true
+    hibernate:
+      ddl_auto: update
+      naming_strategy: org.hibernate.cfg.EJB3NamingStrategy
+    properties:
+      #javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+      hibernate:
+        format_sql: true
+        query.substitutions: true 1, false 0
+        default_batch_fetch_size: 16
+        max_fetch_depth: 2
+        bytecode.use_reflection_optimizer: true
+        cache:
+          region.factory_class: com.esan.base.cache.ehcache.EhCacheRegionFactory
+          use_second_level_cache: true
+          use_query_cache: true
+          use_structured_entries: true
+          generate_statistics: true

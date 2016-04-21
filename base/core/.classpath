@@ -12,5 +12,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+<<<<<<< HEAD
+=======
+	<classpathentry combineaccessrules="false" kind="src" path="/c3-base-cache"/>
+>>>>>>> a21b9a6620b9017dad056e2ec2f7871c456b759a
 	<classpathentry kind="output" path="bin"/>
 </classpath>
