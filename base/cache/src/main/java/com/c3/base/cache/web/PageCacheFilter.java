@@ -14,6 +14,14 @@ import org.springframework.util.PathMatcher;
 
 import com.opensymphony.oscache.web.filter.CacheFilter;
 
+/**
+ * 
+ * description:页面缓存过滤器
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:31:10
+ * @see modify content------------author------------date
+ */
 public class PageCacheFilter extends CacheFilter {
    private final static PathMatcher pathMatcher = new AntPathMatcher();
    private final static String URL_SPLIT_PATTERN = "[, ;\r\n]";

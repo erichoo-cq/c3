@@ -6,9 +6,9 @@
  */
 /**
  * description:
+ * 
  * @author: heshan
  * @version 2016年4月20日 下午9:58:51
- * @see
- * modify content------------author------------date
+ * @see modify content------------author------------date
  */
 package com.c3.base.cache.config;

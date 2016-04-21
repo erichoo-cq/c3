@@ -16,6 +16,14 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.config.Configuration;
 import net.sf.ehcache.config.ConfigurationFactory;
 
+/**
+ * 
+ * description:Ehcache注解工厂，扩展了使用注解的方式配置hibernate实体类的二级缓存
+ * 
+ * @author: heshan
+ * @version 2016年4月21日 上午10:29:37
+ * @see modify content------------author------------date
+ */
 public class EhCacheAnnotationRegionFactory extends EhCacheRegionFactory {
    private static final long serialVersionUID = 1L;
    private static final EhCacheMessageLogger LOG = Logger.getMessageLogger(EhCacheMessageLogger.class,
@@ -41,8 +49,8 @@ public class EhCacheAnnotationRegionFactory extends EhCacheRegionFactory {
             final Configuration configuration = HibernateEhcacheUtils.loadAndCorrectConfiguration(url);
             manager = new CacheManager(configuration);
          }
-         
-         //加入注解的扫描,以xml为主
+
+         // 加入注解的扫描,以xml为主
          L2CacheEhcacheScanner scanner = new L2CacheEhcacheScanner();
          scanner.scan(manager, "com.esan.**.entity");
          mbeanRegistrationHelper.registerMBean(manager, properties);
