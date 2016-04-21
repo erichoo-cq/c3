@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.c3.base.model.entity.base.BaseEntity;
+import com.c3.base.core.repository.jpa.entity.BaseEntity;
 
 @Entity
 @Table(name = "LOG_")
