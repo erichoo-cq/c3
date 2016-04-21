@@ -1,1 +1,5 @@
 git ignore
+/build/
+/.settings/
+/.classpath
+/bin/
