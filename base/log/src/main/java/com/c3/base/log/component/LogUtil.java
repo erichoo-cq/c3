@@ -17,10 +17,10 @@ import com.c3.base.core.util.MessageUtil;
  */
 public class LogUtil {
 
-   private static final Logger DEBUG_LOG = LoggerFactory.getLogger("esan.debug");
-   private static final Logger INFO_LOG = LoggerFactory.getLogger("esan.info");
-   private static final Logger WARN_LOG = LoggerFactory.getLogger("esan.warn");
-   private static final Logger ERROR_LOG = LoggerFactory.getLogger("esan.error");
+   private static final Logger DEBUG_LOG = LoggerFactory.getLogger("c3.debug");
+   private static final Logger INFO_LOG = LoggerFactory.getLogger("c3.info");
+   private static final Logger WARN_LOG = LoggerFactory.getLogger("c3.warn");
+   private static final Logger ERROR_LOG = LoggerFactory.getLogger("c3.error");
 
    private static String getStackTrack() {
       StackTraceElement ste = Thread.currentThread().getStackTrace()[4];
