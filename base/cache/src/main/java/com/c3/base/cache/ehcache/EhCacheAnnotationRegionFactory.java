@@ -52,7 +52,7 @@ public class EhCacheAnnotationRegionFactory extends EhCacheRegionFactory {
 
          // 加入注解的扫描,以xml为主
          L2CacheEhcacheScanner scanner = new L2CacheEhcacheScanner();
-         scanner.scan(manager, "com.esan.**.entity");
+         scanner.scan(manager, "com.c3.**.entity");
          mbeanRegistrationHelper.registerMBean(manager, properties);
       } catch (net.sf.ehcache.CacheException e) {
          if (e.getMessage().startsWith("Cannot parseConfiguration CacheManager. Attempt to create a new instance of "
