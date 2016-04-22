@@ -1,0 +1,32 @@
+<form class="form-horizontal">	
+  <input type="hidden" name="roleId" value="${role.roleId}"> 	
+  <div class="form-group">
+    <label for="name" class="col-sm-4 control-label">角色名</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" data-rule-required="true" name="name" value='${role.name}' placeholder="角色名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description" class="col-sm-4 control-label">角色描述</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" data-rule-required="true" name="description" value='${role.description}' placeholder="角色描述">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="isSystem" class="col-sm-4 control-label">系统角色?</label>
+    <div class="col-sm-6">
+     <select name="isSystem" class="form-control" id = "label">
+        <#if role.isSystem>
+        <option value="true" selected="selected">是</option>
+        <#else>
+        <option value="true">是</option>
+        </#if>
+        <#if !role.isSystem>
+        <option value="false" selected="selected">不是</option>
+        <#else>
+        <option value="false">不是</option>
+        </#if>
+      </select>
+    </div>
+  </div>
+</form>

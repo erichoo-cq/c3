@@ -1,52 +1,9 @@
-buildscript {
-	repositories {
-	    maven { url "http://repo.spring.io/libs-snapshot" }
-        mavenCentral()
-		jcenter()
-	}
-	
-	dependencies {
-		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.2.RELEASE'
-	}
-}
-
-//apply plugin: 'eclipse'
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-
-repositories {
-    // Use 'jcenter' for resolving your dependencies.
-    jcenter()
+configurations {
+    all*.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
+    all*.exclude group: 'ch.qos.logback', module: 'logback-core'
 }
 
 dependencies {
-    //依赖model模块
-	compile(project(":c3-base-model"))	
-	compile(project(":c3-base-core"))	
-	compile 'org.springframework.boot:spring-boot-starter'
-	compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'org.springframework.boot:spring-boot-devtools'
-    compile("org.springframework.boot:spring-boot-starter-web"){
-    	exclude(module: 'commons-logging')
-    }
-    compile 'org.springframework.boot:spring-boot-starter-freemarker'
-
-    
-    //配置数据源
-    compile 'org.postgresql:postgresql:9.4-1205-jdbc41'
-    compile 'com.alibaba:druid:1.0.16'
-
-	
-	// add the shiro dependences 1.2.4 version
-	compile 'org.apache.shiro:shiro-spring:1.2.4'
-  	compile 'org.apache.shiro:shiro-ehcache:1.2.4'
-  	
-  	compile 'commons-fileupload:commons-fileupload:1.3'
-  	compile 'commons-net:commons-net:3.3'
-  	compile 'commons-lang:commons-lang:2.6'
-  	
-  	compile 'com.google.guava:guava:18.0'
-  	
-    testCompile 'junit:junit:4.12'
+    compile project(':c3-base-core')
+    compile project(':c3-base-model')
 }

@@ -1,0 +1,58 @@
+<div class="table-responsive">
+<table class="table table-striped b-t ">
+  <thead>
+    <tr>
+      <th>菜单名称</th>
+      <th>URL</th>
+      <th>是否删除</th>
+      <th>菜单图标</th>
+      <th>创建时间</th>
+      <th>排序</th>
+      <th width="8%">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  	[#list menuPage.content as menu]
+  	<tr>
+      <td>${menu.name}</td>
+      <td>${menu.url}</td>
+      <td>[#if menu.deleted=0]
+      		<a title="停用" href="#"><i class="fa fa-close"></i></a>
+      	[#elseif menu.deleted=1]
+      		<a title="启用" href="#"><i class="fa fa-check"></i></a>
+      	[/#if]</td>
+
+	  <td>${menu.icon}</td>
+	  <td>${menu.createdAt}</td>
+      <td>${menu.sort}</td>
+      <td>
+      	[#if menu.deleted=0]
+      		<a title="停用" href="#"><i class="fa fa-close"></i></a>
+      	[#elseif menu.deleted=1]
+      		<a title="启用" href="#"><i class="fa fa-check"></i></a>
+      	[/#if]
+      	<a class="m-l-xs" title="编辑" href="[@common.ctx/]/sm/users/${user.id}/edit" data-toggle="modal" data-target="#sideslip-sm"><i class="fa fa-edit"></i></a>	
+      </td>
+      
+    </tr>
+  [/#list]
+
+  </tbody>
+</table>
+</div>
+<footer class="panel-footer">
+  <div class="row">
+    <div class="col-sm-4 hidden-xs m-t-sm m-b-sm">
+    	<a class="m-l-xs" title="添加用户" data-toggle="modal" data-target="#sideslip-sm" href="[@common.ctx/]/sm/menu/new">
+    		<i class="fa fa-fw fa-plus"></i>添加菜单
+    	</a>
+    </div>
+    <div class="col-sm-4 text-center">
+    	<small class="text-muted inline m-t-sm m-b-sm">[@common.paginate_entries page=menuPage /]</small>
+    </div>
+    <div class="col-sm-4 text-right text-center-xs" id="user-paginate">
+		[@common.paginate page=menuPage /]
+    </div>
+  </div>
+</footer>

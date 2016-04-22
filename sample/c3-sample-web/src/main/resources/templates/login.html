@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<title>首页</title>
+<#include "/include/_head.html" />
+<link rel="stylesheet" type="text/css" href="/vendor/css/style.css" />
+<script type="text/javascript">
+$(function(){
+	$("#rememberMe").click(function(){
+		$(this).toggleClass('active')
+	})
+})
+</script>
+</head>
+<body>
+<div class="login" style="top:200px;">
+  <form role="form" method="post" action="<@common.ctx/>/login">
+	<h1><input type="text" name="username" value="用户名" onFocus="if(value==defaultValue){value='';this.style.color='#fff'}" onBlur="if(!value){value=defaultValue;this.style.color='#e2effb'}"></h1>
+    <h1><input type="text" name="password" value="密码" onfocus="if(value==defaultValue){value='';this.type='password';this.style.color='#fff'}" onblur="if(!value){value=defaultValue; this.type='text';this.style.color='#e2effb'}"></h1>
+    <h2 class="clearfix">
+    	<a href="#" class="remember clearfix active" id="rememberMe"><b></b><span></span><strong>记住我</strong></a>
+        <a href="#" class="forget">忘记密码？</a>
+    </h2>
+    <#if shiroLoginFailure??>
+       <div class="alert alert-danger">
+         <i class="fa fa-fw fa-times-circle"></i>
+         <span><@spring.message code=shiroLoginFailure /></span>
+       </div>
+    </#if>
+    <button type="submit" class="btn btn-lg btn-success btn-block" data-disable-with="登录中..." style="font-size: 26px;">登　录</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<title>菜单管理-能效云数据中心</title>
+[#include "/include/_head.html" /]
+</head>
+<body>
+[@layout.application]
+<section class="panel panel-default">
+	<header class="panel-heading"> 菜单管理 </header>
+	<div class="text-sm wrapper">
+		<form class="form-inline" id="menuForm">
+			<div class="form-group">
+			  <label for="menu">菜单名称</label>
+			  <input type="text" class="form-control input-sm" id="menuName"  name="menuName" placeholder="菜单名称">
+			</div>
+			<a type="submit" id="searchBtn" class="btn btn-success btn-sm" data-disable-with="<i class='fa fa-spinner fa-spin'></i>">查 询</a>
+		</form>
+	</div>
+	<div id="menuPage"></div>  
+</section>
+[/@layout.application]
+<script type="text/javascript" src="[@common.ctx/]/vendor/js/sm/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div id="smResource-edit">
+  <form class="form-horizontal" action="<@common.ctx/>/sm/resource/menu?_method=PUT" method="post">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title"><i class="fa fa-fw fa-edit"></i>编辑资源</h4>
+    </div>
+    <div class="modal-body">
+       <#include "/sm/resource/_form.html" />
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-fw fa-times"></i>取消</button>
+      <button class="btn btn-primary"><i class="fa fa-fw fa-save"></i>保存</button>
+    </div>
+  </form>
+</div>

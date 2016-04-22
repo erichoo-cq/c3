@@ -1,0 +1,27 @@
+<div class="table-responsive" style="height: 526px;">
+<div id="nestable" data-xtype="nestable" class="dd" style="padding-left: 20px;padding-right: 20px;">
+		<#if roleId = 0><p class="text-warning">请选择一个角色，进行资源关联操作！</p></#if>
+		<input type="hidden" value="${roleId}" id="selectRoleId">
+        <ol class="dd-list">
+		<#list menus as role>          
+          <li class="dd-item">
+          		<button data-action="expand" type="button">Collapse</button>
+             	<div class="dd-handle">${role.menu_name}
+            	<input class="pull-right" type="checkbox" <#if role.state?number != 0>checked="checked"</#if> id="checkTargetSet" value="${role.resource_id}" name="targetSetYear" style="cursor: pointer;">
+            </div>
+            <#if role.childs??>
+            <ol class="dd-list" style="display: none;">
+            <#list role.childs as item>
+            <li class="dd-item">
+                <div class="dd-handle">${item.menu_name}
+                	<input class="pull-right" type="checkbox" <#if item.state?number != 0>checked="checked"</#if> id="checkTargetSet" value="${item.resource_id}" name="targetSetYear" style="cursor: pointer;">   
+                </div>
+            </li>
+            </#list>
+            </ol>
+            </#if>
+          </li>
+		</#list>
+        </ol>
+      </div>
+</div>

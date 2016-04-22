@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<title>角色管理</title>
+<#include "/include/_head.html" />
+</head>
+<body>
+<@layout.application>
+<div class="page-header m-t-xs m-b-xs">
+  <h3 class="m-t-no m-b-no">角色管理</h3>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+	<section class="panel panel-default">
+		<header class="panel-heading"> 角色列表 </header>
+		<div class="text-sm wrapper">
+			<form class="form-inline" id="roleForm">
+				<div class="form-group">
+				  <label for="role">角色名称</label>
+				  <input type="text" class="form-control input-sm" id="roleName" name="roleName" placeholder="角色名称">
+				</div>
+				<a id="searchBtn" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-fw fa-search"></i>查 询</a>
+				<a id="sm-role-add" class="btn btn-primary btn-sm" href="<@common.ctx/>/sm/role/new"><i class="fa fa-fw fa-plus"></i>添加角色</a>
+			</form>                                      
+		</div>
+		<div id="rolePage" ><p class="text-center m-t-sm"><i class="fa fa-spinner fa fa-spin fa fa-2x"></i></p></div> 
+	</section>
+  </div>
+  <div class="col-sm-4">
+	<section class="panel panel-default">
+		<header class="panel-heading">角色-资源关联 </header>
+		<div class="text-sm pull-right" style="padding-right: 20px;padding-top: 15px;padding-bottom: 10px;">
+			<form class="form-inline" id="roleForm">
+				<a id="sm-role-menu" class="btn btn-primary btn-sm" href="#none" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-check-square-o"></i> 提交关联</a>
+			</form>                                      
+		</div>
+		<div class="clearfix"></div>
+		<div id="menuList" ><p class="text-center m-t-sm"><i class="fa fa-spinner fa fa-spin fa fa-2x"></i></p></div> 
+	</section>
+  </div>
+</div>
+</@layout.application>
+<script type="text/javascript" src="<@common.ctx/>/vendor/js/sm/role.js"></script>
+</body>
+</html>

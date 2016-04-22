@@ -36,6 +36,18 @@ public final class SpringUtil implements BeanFactoryPostProcessor {
    public static <T> T getBean(String name) throws BeansException {
       return (T) beanFactory.getBean(name);
    }
+   
+   /**
+    * 获取对象
+    *
+    * @param name
+    * @return Object 一个以所给名字注册的bean的实例
+    * @throws org.springframework.beans.BeansException
+    *
+    */
+   public static <T> T getBean(String name, Class<T> clz) throws BeansException {
+      return beanFactory.getBean(name, clz);
+   }
 
    /**
     * 获取类型为requiredType的对象
@@ -46,8 +58,7 @@ public final class SpringUtil implements BeanFactoryPostProcessor {
     *
     */
    public static <T> T getBean(Class<T> clz) throws BeansException {
-      T result = (T) beanFactory.getBean(clz);
-      return result;
+      return beanFactory.getBean(clz);
    }
 
    /**
