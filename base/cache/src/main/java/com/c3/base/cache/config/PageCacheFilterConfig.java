@@ -51,14 +51,18 @@ public class PageCacheFilterConfig {
          registration.addUrlPatterns(pageCacheFilter.getIncludePages());
          registration.addUrlPatterns(pageCacheFilter.getIncludePatterns());
       } else {
+         registration.setEnabled(false);
          registration.setFilter(new Filter() {
             @Override
             public void init(FilterConfig filterConfig) throws ServletException {
             }
+
             @Override
             public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
                   throws IOException, ServletException {
+               chain.doFilter(request, response);
             }
+
             @Override
             public void destroy() {
             }
