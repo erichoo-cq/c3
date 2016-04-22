@@ -3,7 +3,12 @@ info:
   app_version: 1.0.0
 server:
   port: 8080
-spring:
+  
+c3_cache.pagecache: 
+  enable: true
+  packagescan: com.c3.**.pagecache
+
+spring: 
   aop:
     auto: true
     proxy-target-class: true

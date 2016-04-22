@@ -1,0 +1,6 @@
+1,打开开关，参考application.yml
+         c3_cache.pagecache: 
+             enable: true #是否启用页面缓存，默认关闭
+             packagescan: com.c3.**.pagecache  #页面缓存注释扫描包，支持多包扫描，以逗号分隔，但是建议采用通配符，约定好规则
+             
+2,在扫描包下面加入缓存配置类，并加上注解@EnablePageCache，参考com.c3.test.pagecache.PageCacheConfig
