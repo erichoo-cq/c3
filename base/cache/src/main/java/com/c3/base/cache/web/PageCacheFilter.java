@@ -1,9 +1,10 @@
 package com.c3.base.cache.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -20,44 +21,68 @@ import com.opensymphony.oscache.web.filter.CacheFilter;
  * 
  * @author: heshan
  * @version 2016年4月21日 上午10:31:10
- * @see modify content------------author------------date
+ * @see
  */
 public class PageCacheFilter extends CacheFilter {
    private final static PathMatcher pathMatcher = new AntPathMatcher();
-   private final static String URL_SPLIT_PATTERN = "[, ;\r\n]";
-   private final static String EXCLUDED_PAGES = "excludedPages";
-   private final static String EXCLUDED_PATTERNS = "excludedPatterns";
+   private List<String> includePages = new ArrayList<String>();
+   private List<String> includePatterns = new ArrayList<String>();
+   private List<String> excludePages = new ArrayList<String>();
+   private List<String> excludePatterns = new ArrayList<String>();
 
-   private String[] pages;
-   private String[] patterns;
+   public void addIncludePages(String[] includePages) {
+      for (String page : includePages) {
+         this.includePages.add(page);
+      }
+   }
 
-   public void init(FilterConfig filterConfig) {
-      pages = getExcludedPages(filterConfig);
-      patterns = getExcludedPatterns(filterConfig);
-      super.init(filterConfig);
+   public String[] getIncludePages() {
+      return this.includePages.toArray(new String[] {});
+   }
+
+   public void addIncludePatterns(String[] includePatterns) {
+      for (String pattern : includePatterns) {
+         this.includePatterns.add(pattern);
+      }
+   }
+
+   public String[] getIncludePatterns() {
+      return this.includePatterns.toArray(new String[] {});
+   }
+
+   public void addExcludePages(String[] excludePages) {
+      for (String page : excludePages) {
+         this.excludePages.add(page);
+      }
+   }
+
+   public void addExcludePatterns(String[] excludePatterns) {
+      for (String pattern : excludePatterns) {
+         this.excludePatterns.add(pattern);
+      }
    }
 
    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
          throws IOException, ServletException {
       HttpServletRequest req = (HttpServletRequest) request;
-      if (isExcludedUrl(pages, patterns, req.getServletPath())) {// 不包含
+      if (isExcludedUrl(excludePages, excludePatterns, req.getServletPath())) {// 不包含
          chain.doFilter(request, response);
       } else {
          super.doFilter(request, response, chain);
       }
    }
 
-   private boolean isExcludedUrl(String[] pages, String[] patterns, String url) {
-      if (pages != null) {
-         for (int i = 0; i < pages.length; i++) {
-            if (url.equals(pages[i])) {
+   private boolean isExcludedUrl(List<String> pages, List<String> patterns, String url) {
+      if (pages != null && !pages.isEmpty()) {
+         for (int i = 0; i < pages.size(); i++) {
+            if (url.equals(pages.get(i))) {
                return true;
             }
          }
       }
-      if (patterns != null) {
-         for (int i = 0; i < patterns.length; i++) {
-            if (pathMatcher.match(patterns[i], url)) {
+      if (patterns != null && !patterns.isEmpty()) {
+         for (int i = 0; i < patterns.size(); i++) {
+            if (pathMatcher.match(pages.get(i), url)) {
                return true;
             }
          }
@@ -65,19 +90,4 @@ public class PageCacheFilter extends CacheFilter {
       return false;
    }
 
-   private String[] getExcludedPages(FilterConfig filterConfig) {
-      String excludedPages = filterConfig.getInitParameter(EXCLUDED_PAGES);
-      if (excludedPages != null && !"".equals(excludedPages)) {
-         return excludedPages.split(URL_SPLIT_PATTERN);
-      }
-      return null;
-   }
-
-   private String[] getExcludedPatterns(FilterConfig filterConfig) {
-      String excludedPages = filterConfig.getInitParameter(EXCLUDED_PATTERNS);
-      if (excludedPages != null && !"".equals(excludedPages)) {
-         return excludedPages.split(URL_SPLIT_PATTERN);
-      }
-      return null;
-   }
 }

@@ -1,5 +1,5 @@
 info:
-  app_name: esan::base::dictionary
+  app_name: c3::base::cache
   app_version: 1.0.0
 server:
   port: 8080
@@ -43,7 +43,7 @@ spring:
         max_fetch_depth: 2
         bytecode.use_reflection_optimizer: true
         cache:
-          region.factory_class: com.esan.base.cache.ehcache.EhCacheRegionFactory
+          region.factory_class: com.c3.base.cache.ehcache.EhCacheAnnotationRegionFactory
           use_second_level_cache: true
           use_query_cache: true
           use_structured_entries: true

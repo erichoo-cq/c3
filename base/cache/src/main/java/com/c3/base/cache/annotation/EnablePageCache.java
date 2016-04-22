@@ -13,5 +13,13 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface EnablePageCache {
-   String[] urlPatterns();
+
+   String[] includePages() default {};
+
+   String[] includePatterns() default {};
+
+   String[] excludePages() default {};
+
+   String[] excludePatterns() default {};
+
 }
