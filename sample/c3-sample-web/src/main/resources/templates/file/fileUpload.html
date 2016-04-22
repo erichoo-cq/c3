@@ -1,0 +1,41 @@
+<section>
+   	<header class="modal-header"> 
+   		<button class="close" aria-label="Close" data-dismiss="modal" type="button">
+			<span aria-hidden="true" class="fa fa-times"></span>
+		</button>
+   		<h4 class="modal-title">文件上传</h4>
+   	</header>
+	<div class="modal-body">
+		<form class="form-horizontal" method="post">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">文件备注.
+			</label>
+			<div class="col-sm-9">
+				<div contenteditable="true" style=" height: 150px; max-height: 150px" 
+				class="form-control" id="ESSFileUpDis"></div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">文件上传</label>
+			<div class="col-sm-9">
+				<div class="attachment" data-xtype="attachment"  data-form-data='{"doc_type": "2"}'
+				data-accept-file-types ="(\.|\/)(gif|jpe?g|png|pdf|doc)$" >
+					<span class="btn btn-sm btn-success fileinput-button">
+				        <i class="fa fa-plus"></i>
+				        <span>上传附件</span>
+				        <input type="file" name="file" multiple=""/>
+			        </span>
+					<div class="progress m-t-xs m-b-xs hide">
+				        <div class="progress-bar progress-bar-success"></div>
+				    </div>
+					<ul class="list-unstyled items m-t-xs"></ul>
+				</div>
+			</div>
+		</div>
+        </form>
+	</div>
+	<div class="modal-footer">
+	   <button type="button" class="btn btn-default" data-dismiss="modal" id="closeUpload">关闭</button>
+       <a href="javascript:;" class="btn btn-primary" id="ESSFileSubmit">提交</a>
+    </div>
+</section>

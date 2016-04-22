@@ -1,0 +1,14 @@
+<script type="text/template" id="emis-common-select-tmpl">
+  <div class="col-sm-2">
+    <select class="form-control">
+    <option value="" data-all="true">全部选择</option>
+    {{_.each(datas, function(item){}}
+      {{if(typeof(defaultValue) !== "undefined" && item.value == defaultValue){}}
+	  <option value="{{=item.value}}" selected="selected">{{=item.name}}</option>
+      {{}else{}}
+      <option value="{{=item.value}}">{{=item.name}}</option>
+      {{}}}
+    {{})}}
+    </select>
+  </div>
+</script>

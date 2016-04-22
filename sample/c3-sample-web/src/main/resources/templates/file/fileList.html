@@ -1,0 +1,45 @@
+<div class="table-responsive" style="overflow-x: hidden;">
+	<table class="table table-striped b-t">
+	  <thead>
+		 <tr role="row">
+			<th>名称</th>
+			<th>文件格式</th>
+			<th>上传时间</th>
+			<th>文件备注</th>
+			<th>操作</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  <#list fileList.content as fileListItem>
+	  	<tr>
+             <td>${fileListItem.doc_name}</td>
+             <td>${fileListItem.file_ext}</td>
+             <td>${fileListItem.upload_date}</td>
+             <td>${fileListItem.doc_description}</td>
+             <td>
+             <#-- <@shiro.hasRole name="DC"> -->
+             <a href="javascript:;" class="toggleState" data-file-id="${fileListItem.file_id}">
+             <i class="fa fa-trash-o text-warning" title="删除"></i>
+             </a>
+             <#-- </@shiro.hasRole> -->
+             <a class="m-l-sm" 
+				href="<@common.ctx/>/attachment/download?id=${fileListItem.file_id}">
+				<i class="fa fa-cloud-download text-success" title="下载"></i></a>
+             </td>
+	    </tr>
+	  </#list>
+	  </tbody>
+	</table>
+	<footer class="panel-footer">
+	  <div class="row">
+	  	<div class="col-sm-4 text-left text-center-xs" >
+	  	</div>
+	    <div class="col-sm-4 text-center">
+	    	<small class="text-muted inline m-t-sm m-b-sm"><@common.paginate_entries page=fileList /></small>
+	    </div>
+	    <div class="col-sm-4 text-right text-center-xs" id="ESSFileList_paginate">
+			<@common.paginate page=fileList />
+	    </div>
+	  </div>
+  	</footer>
+</div>

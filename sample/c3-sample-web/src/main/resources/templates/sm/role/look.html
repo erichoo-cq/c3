@@ -1,0 +1,33 @@
+ 
+  <div class="row" id = "rpage">
+    <div class="col-sm-12">
+      <section class="tab-pane active" id="basic">
+        <section class="panel panel-default">
+          <header class="panel-heading font-bold"> 查看角色权限 </header>
+          <div class="panel-body">
+            <form class="form-horizontal" >	
+				<#list authorityPage as role>
+					<br><p class="text-primary">${role.menu_name}<p>
+					<#list lookList as look>
+						<#if  look.parent_resource_id == role.resource_id >
+							${look.menu_name}&nbsp;&nbsp;
+							<#assign number = 1>
+						</#if>
+					</#list>
+					<#if number != 1>
+					不具有权限
+					</#if>
+					<#assign number = 0>
+				</#list>
+			  <br>
+			  <button class="btn btn-success" >确定</button><br>&nbsp;
+			</form>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="<@common.ctx/>/vendor/js/sm/look.js">
+
+  </script>

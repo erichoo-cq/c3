@@ -1,0 +1,197 @@
+<aside class="sidebar bg-primary aside ${cookies.sidebar}">
+  <section class="vbox">
+    <nav class="nav-primary hidden-xs" data-ride="collapse">
+      <ul class="nav">
+      	<li class="dropdown-submenu ${spring.contains(['session'], controller)? string('active', '')}">
+          <a href="<@common.ctx/>/">
+            <i class="fa fa-dashboard"></i>
+            <span>主页</span>
+          </a>
+        </li>
+  		<li class="dropdown-submenu ${spring.contains(['resource'], controller)? string('active', '')}">
+          <a href="#" class="${spring.contains(['resource'], controller)? string('active', '')}">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+            <i class="fa fa-cogs"></i>
+            <span>系统管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="<@common.ctx/>/sm/users">用户管理</a></li>
+            <li><a href="<@common.ctx/>/sm/role">角色管理</a></li>
+            <li><a href="<@common.ctx/>/sm/resource">资源管理</a></li>
+            
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-database"></i>
+            <span>配置管理</span>
+          </a>
+          <ul class="dropdown-menu">
+           <!-- <li><a href="<@common.ctx/>/sm/area">园区</a></li>
+            <li><a href="[@common.ctx/]/ct/district">行政区划代码</a></li>
+            <li><a href="[@common.ctx/]/ct/common">通用代码</a></li>
+            <li><a href="[@common.ctx/]/ct/industry">行业分类代码</a></li>
+            <li><a href="[@common.ctx/]/ct/hierarchyCode/RC00">品种工质编码</a></li> -->
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-bar-chart"></i>
+            <span>能源监测管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">能源品种/行业能源在线监测管理</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-rocket"></i>
+            <span>节能目标管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="[@common.ctx/]/bt/savingEvaluate/county">区县节能考评规则展示/发布</a></li>
+            <li><a href="[@common.ctx/]/bt/districtEnergySavingTarget">区县节能目标设定</a></li>
+            <li><a href="[@common.ctx/]/bt/districtEnergySTCompletion">区县节能目标完成状况查询</a></li>
+            <li><a href="[@common.ctx/]/bt/savingEvaluate/enterprise">企业节能考评规则展示/发布</a></li>
+            <li><a href="[@common.ctx/]/bt/enterpriseTarget">企业节能目标设定</a></li>
+            <li><a href="[@common.ctx/]/bt/savingEvaluate/enterpriseSavingObjectSearch">企业节能目标完成状况查询</a></li>
+            <li><a href="[@common.ctx/]/bt/evaluate">企业节能目标评分模板</a></li>
+            <li><a href="[@common.ctx/]/bt/liveEvaluate">企业节能目标评分</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-desktop"></i>
+            <span>能源消费管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="[@common.ctx/]/st/engergyconsume/district">区县能源消费展示（按年/时间段）</a></li>
+            <li><a href="[@common.ctx/]/st/ecom/district">区县能源对比分析</a></li>
+            <li><a href="[@common.ctx/]/st/ec/industry">行业能源消费展示（按年/时间段）</a></li>
+            <li><a href="[@common.ctx/]/st/ecom/industry">行业能源对比分析</a></li>
+            <li><a href="[@common.ctx/]/bt/baseshow/index">企业基础信息展示</a></li>
+            <li><a href="[@common.ctx/]/st/effic/index">企业能效指标展示</a></li>
+            <li><a href="[@common.ctx/]/bt/report/index">企业能源利用状况查询</a></li>
+            <li><a href="[@common.ctx/]/bt/warn/config">能源消费预警值设定</a></li>
+            <li><a href="[@common.ctx/]/bt/suspend/index">企业停产信息查询</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-th-list"></i>
+            <span>节能服务管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="[@common.ctx/]/bt/energySavingService/fileUploadDownload">节能申报材料上传/下载</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/projectSearch">节能申报查询</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/energyAudit">能源审计申报材料上传/下载</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/energyAuditSearch">审计文件查询</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/savingDiag">节能诊断申请材料上传/下载</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/savingDiagApplySearch">节能诊断申请查询</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/eliminateDeviceSearchIndex">淘汰落后设备查询</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/techIndex">淘汰落后工艺查询</a></li>
+            <li><a href="[@common.ctx/]/bt/energySavingService/policyIndex">政策法规下载</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-tags"></i>
+            <span>能源总量控制</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="[@common.ctx/]/bt/gross/re">区县能源总量消费目标设定</a></li>
+            <li><a href="[@common.ctx/]/bt/gross/re/info">区县能源总量消费状况</a></li>
+            <li><a href="[@common.ctx/]/bt/gross/co">企业能源总量消费目标设定</a></li>
+            <li><a href="[@common.ctx/]/bt/gross/co/info">企业能源总量消费状况</a></li>
+            <li><a href="[@common.ctx/]/bt/DSE/DSEGoalSet">区县单能源品种目标设定</a></li>
+            <li><a href="[@common.ctx/]/bt/DSE/DSEGoalInfoIndex">区县单能源品种消费状况</a></li>
+            <li><a href="[@common.ctx/]/bt/DSE/ESEGoalSet">企业单能源品种目标设定</a></li>
+            <li><a href="[@common.ctx/]/bt/DSE/ESEGoalInfoIndex">企业单能源品种消费状况</a></li>
+            <li><a href="[@common.ctx/]/bt/DSE/newEnergyApplyIndex">新增能源申请查询</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-briefcase"></i>
+            <span>能效管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="[@common.ctx/]/bt/compare">企业对标分析</a></li>
+            <li><a href="[@common.ctx/]/bt/lp/CESearchIndex">阶梯电价录入及查询</a></li>
+            <li><a href="[@common.ctx/]/bt/energyRunRaking/index">能效领跑排名查询</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-recycle"></i>
+            <span>交易管理</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="[@common.ctx/]/bt/tradeManage/CESetIndex">碳排放配额设定</a></li>
+            <li><a href="[@common.ctx/]/bt/tradeManage/CESearchIndex">碳排放配额查询</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown-submenu">
+          <a href="#">
+            <span class="pull-right auto hide">
+              <i class="fa fa-angle-down text"></i>
+              <i class="fa fa-angle-up text-active"></i>
+            </span>
+			<i class="fa fa-line-chart"></i>
+            <span>能源消费预测（POC）</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">能源消费预测首页</a></li>
+            <li><a href="#">能耗消费预测基础信息导入</a></li>
+            <li><a href="#">能源消费预测统计信息导入</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <footer class="footer bg-gradient hidden-xs text-center">
+      <a data-target=".sidebar" data-toggle="sidebar" class="btn btn-sm btn-link m-l-n-sm"><i class="fa fa-bars"></i></a>
+    </footer>
+  </section>
+</aside>

@@ -1,0 +1,28 @@
+  <div class="row" id = "rpage">
+    <div class="col-sm-12">
+      <section class="tab-pane active" id="basic">
+        <section class="panel panel-default">
+          <header class="panel-heading font-bold"> 修改角色权限 </header>
+          <div class="panel-body">
+            <form class="form-horizontal" >	
+            <#list authorityPage as role>
+           		<br><p class="text-primary">${role.menu_name}<p>
+            	<#list authorityPages as roles>
+             		<#if  roles.parentResourceId == role.resource_id >
+            			<input type="checkbox" name = "role" value="${roles.resourceId}" id="menun"> ${roles.menuName}&nbsp;&nbsp;
+            		</#if>
+            	</#list>
+			</#list>
+			<#list number as numb>
+			<input id = "number" style=display:none; value="${number.id}">
+			</#list>
+			  <br><button id="suer" class="btn btn-success" >确定</button>&nbsp;&nbsp;<button class="btn btn-default" >取消</button>
+			  <br>&nbsp;
+			</form>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="<@common.ctx/>/vendor/js/sm/update.js"></script>

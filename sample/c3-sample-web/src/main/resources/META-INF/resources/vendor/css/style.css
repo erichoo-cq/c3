@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0; text-decoration:none; outline:none; font-family:微软雅黑;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,p,th,td{margin:0; padding:0;}
+img{border:0;}
+caption,strong,th,b{font-style:normal; font-weight:normal;}
+ul,ol{list-style:none;}
+table,caption,th,td{text-align:left; border-collapse:separate;}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal;}
+.clear{clear:both; height:0; line-height:0; font-size:0;}
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix{display:inline-block;}/* Hide from IE Mac */
+.clearfix{display:block;}/* End hide from IE Mac *//* end of clearfix */
+
+.login_bg{background:url(../images/login_bg.jpg) no-repeat center top; position:fixed; top:0; left:0; bottom:0; right:0; overflow-y:auto;}
+
+.login{width:400px; position:fixed; top:320px; left:50%; margin-left:-200px;}
+.login h1{display:block; margin-bottom:10px;}
+.login h1 input{display:block; background:#8da9c4; border:1px solid #7489a2; width:398px; height:58px; text-indent:20px; font-size:20px; color:#d8e7f5; line-height:58px; border-radius:5px;}
+.login h2{display:block; width:100%; margin-bottom:10px;}
+.login h2 a.remember{display:block; float:left;}
+.login h2 a.remember b{display:block; float:left; background:url(../images/login_checkbox0.png) no-repeat; width:20px; height:20px;}
+.login h2 a.remember span{display:none;}
+.login h2 a.active span{display:block; float:left; background:url(../images/login_checkbox1.png) no-repeat; width:20px; height:20px;}
+.login h2 a.active b{display:none;}
+.login h2 a.remember strong{display:block; float:left; font-size:18px; line-height:20px; margin-left:5px; color:#8da9c4;}
+.login h2 a.forget{display:block; float:right; font-size:18px; color:#8da9c4; line-height:20px; text-decoration:underline;}
+.login h2 a:hover.forget{text-decoration:none;}
+.login h3{display:block;}
+.login h3 a{display:block; background:url(../images/login_submit.png) no-repeat; width:400px; height:60px; line-height:60px; text-align:center; color:#fff; font-size:26px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
