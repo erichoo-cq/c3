@@ -14,7 +14,7 @@ import com.c3.base.log.repository.LogRepository;
 public class LogDbHelper {
    private static LogRepository logRepository;
 
-   protected static void log(HttpServletRequest request, String content) {
+   public static void log(HttpServletRequest request, String content) {
       Log log = new Log();
       log.setContent(content);
       Subject currentUser = SecurityUtils.getSubject();// 获取当前用户

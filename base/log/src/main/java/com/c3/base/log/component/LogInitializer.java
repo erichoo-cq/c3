@@ -18,7 +18,7 @@ import com.c3.base.log.constant.Constant;
  * 
  * @author: heshan
  * @version 2016年4月21日 上午10:45:11
- * @see modify content------------author------------date
+ * @see
  */
 @Component
 public class LogInitializer implements ApplicationListener<ContextRefreshedEvent> {
@@ -48,7 +48,7 @@ public class LogInitializer implements ApplicationListener<ContextRefreshedEvent
          System.out.println("************日志系统初始化成功************");
       } catch (Exception e) {
          System.err.println("************日志系统初始化失败************");
-         System.err.println(e.getMessage());
+         e.printStackTrace();
       }
    }
 
