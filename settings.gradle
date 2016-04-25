@@ -36,6 +36,14 @@ project(':c3-base-menu').projectDir = new File(settingsDir, 'base/menu')
 include 'c3-base-cache'
 project(':c3-base-cache').projectDir = new File(settingsDir, 'base/cache')
 
+//数据字典工程
+include 'c3-base-dictionary'
+project(':c3-base-dictionary').projectDir = new File(settingsDir, 'base/dictionary')
+
+//日志工程
+include 'c3-base-log'
+project(':c3-base-log').projectDir = new File(settingsDir, 'base/log')
+
 //示例工程
 include 'c3-sample-web'
 project(':c3-sample-web').projectDir = new File(settingsDir, 'sample/c3-sample-web')
