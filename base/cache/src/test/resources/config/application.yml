@@ -3,12 +3,10 @@ info:
   app_version: 1.0.0
 server:
   port: 8080
-  
-c3_cache.pagecache: 
+c3_cache.pagecache:
   enable: true
   packagescan: com.c3.**.pagecache
-
-spring: 
+spring:
   aop:
     auto: true
     proxy-target-class: true
@@ -40,7 +38,6 @@ spring:
       ddl_auto: update
       naming_strategy: org.hibernate.cfg.EJB3NamingStrategy
     properties:
-      #javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
       hibernate:
         format_sql: true
         query.substitutions: true 1, false 0
