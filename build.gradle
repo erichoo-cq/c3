@@ -95,7 +95,7 @@ subprojects {
 
         compile("org.springframework:spring-context-support")
 
-        //compile "net.sf.ehcache:ehcache:${ehcache_version}"
+        compile "net.sf.ehcache:ehcache:${ehcache_version}"
 
         //用于处理date，time，calendar的工具包
         compile "joda-time:joda-time:${joda_time_version}"
@@ -112,7 +112,7 @@ subprojects {
         //新的依赖注入,提供@Inject等注入
         compile "javax.inject:javax.inject:${javax_inject_version}"
 
-        //compile "org.apache.commons:commons-lang3:${commons_lang3_version}"
+        compile "org.apache.commons:commons-lang3:${commons_lang3_version}"
         compile "commons-lang:commons-lang:${commons_lang_version}"
         compile "commons-io:commons-io:${commons_io_version}"
         
