@@ -1,8 +1,8 @@
 dependencies {
     compile 'org.hibernate:hibernate-ehcache:4.3.11.Final'
-    compile 'opensymphony:oscache:2.4.1'
-    compile 'javax.servlet:servlet-api:3.0-alpha-1'
-    
+    compile ('opensymphony:oscache:2.4.1'){
+       exclude group: 'javax.servlet', module: 'servlet-api'
+    }
     testCompile("org.springframework.boot:spring-boot-starter-web")
     testCompile("org.springframework.boot:spring-boot-starter-data-jpa")
 }
