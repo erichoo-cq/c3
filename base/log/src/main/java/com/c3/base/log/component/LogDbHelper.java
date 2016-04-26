@@ -2,8 +2,6 @@ package com.c3.base.log.component;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +12,10 @@ import com.c3.base.log.repository.LogRepository;
 public class LogDbHelper {
    private static LogRepository logRepository;
 
-   public static void log(HttpServletRequest request, String content) {
+   public static void log(HttpServletRequest request, String userName, String content) {
       Log log = new Log();
       log.setContent(content);
-      Subject currentUser = SecurityUtils.getSubject();// 获取当前用户
-      log.setUserName(currentUser.getPrincipal().toString());
+      log.setUserName(userName);
       String ip = request.getHeader("x-forwarded-for");
       if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
          ip = request.getHeader("Proxy-Client-IP");

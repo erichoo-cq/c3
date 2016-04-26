@@ -1,4 +1,5 @@
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
     compile project(":c3-base-core")
     compile project(":c3-base-dictionary")
 }

@@ -114,8 +114,8 @@ public class LogUtil {
       // MAIL_LOG.
    }
 
-   public static void logDB(HttpServletRequest request, String content) {
-      LogDbHelper.log(request, content);
+   public static void logDB(HttpServletRequest request, String userName, String content) {
+      LogDbHelper.log(request, userName, content);
    }
 
 }
