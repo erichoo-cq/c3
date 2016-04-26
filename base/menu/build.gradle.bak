@@ -1,9 +1,0 @@
-configurations {
-    all*.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
-    all*.exclude group: 'ch.qos.logback', module: 'logback-core'
-}
-
-dependencies {
-    compile project(':c3-base-core')
-    compile project(':ce-base-model')
-}
