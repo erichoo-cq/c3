@@ -10,6 +10,6 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
  * @see
  * modify content------------author------------date
  */
-public class AuthenticationFilter extends FormAuthenticationFilter {
-
-}
+//public class AuthenticationFilter extends FormAuthenticationFilter {
+//
+//}
