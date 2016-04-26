@@ -5,3 +5,4 @@ git ignore
 /bin/
 /.gradle/
 /gradle/
+/.project
