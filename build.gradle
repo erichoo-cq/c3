@@ -3,21 +3,21 @@ def webprojects = [project(':c3-sample-web')]
 
 buildscript {
     repositories {
-        //ÅäÖÃ²Ö¿â
+        //é…ç½®ä»“åº“
         maven { url "http://repo.spring.io/libs-snapshot" }
-        //ÅäÖÃgradle templates²Ö¿â
+        //é…ç½®gradle templatesä»“åº“
         maven { url 'http://dl.bintray.com/cjstehno/public'}
-        //ÅäÖÃgradle.git.properties
+        //é…ç½®gradle.git.properties
         maven { url "https://plugins.gradle.org/m2/"}
         mavenCentral()
-		    jcenter()
+        jcenter()
     }
     
     dependencies {
-        //´´½¨gradle¹¹½¨Ä£°å
+        //åˆ›å»ºgradleæ„å»ºæ¨¡æ¿
         classpath 'gradle-templates:gradle-templates:1.5'
         
-      	//Ìí¼Óspring boot gradle²å¼ş
+        //æ·»åŠ spring boot gradleæ’ä»¶
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE'
         
         classpath 'gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.11'
@@ -46,7 +46,7 @@ allprojects {
     repositories {
         maven { url "http://repo.spring.io/libs-snapshot" }
         mavenCentral()
-		    jcenter()
+        jcenter()
     }
 }
 
@@ -73,12 +73,12 @@ subprojects {
 
     //mainClassName  = 'com.ccscq.emis.Application'
 
-    //jdk°æ±¾
+    //jdkç‰ˆæœ¬
     sourceCompatibility = java_version
     targetCompatibility = java_version
 
     ext {
-        //ÅäÖÃ±àÂë
+        //é…ç½®ç¼–ç 
         compileJava.options.encoding = 'UTF-8'
         compileTestJava.options.encoding = 'UTF-8'
     }
@@ -97,7 +97,7 @@ subprojects {
 
         compile "net.sf.ehcache:ehcache:${ehcache_version}"
 
-        //ÓÃÓÚ´¦Àídate£¬time£¬calendarµÄ¹¤¾ß°ü
+        //ç”¨äºå¤„ç†dateï¼Œtimeï¼Œcalendarçš„å·¥å…·åŒ…
         compile "joda-time:joda-time:${joda_time_version}"
         
         //service provider interface for hibernate, joda time 
@@ -106,32 +106,32 @@ subprojects {
           exclude group: 'org.hibernate', module: 'hibernate-entitymanager'
         }
 
-				//google java core library
+        //google java core library
         compile "com.google.guava:guava:${google_guava_version}"
         
-        //ĞÂµÄÒÀÀµ×¢Èë,Ìá¹©@InjectµÈ×¢Èë
+        //æ–°çš„ä¾èµ–æ³¨å…¥,æä¾›@Injectç­‰æ³¨å…¥
         compile "javax.inject:javax.inject:${javax_inject_version}"
 
         compile "org.apache.commons:commons-lang3:${commons_lang3_version}"
         compile "commons-lang:commons-lang:${commons_lang_version}"
         compile "commons-io:commons-io:${commons_io_version}"
         
-        //ÎÄ¼şÉÏ´«ÓëÏÂÔØ
+        //æ–‡ä»¶ä¸Šä¼ ä¸ä¸‹è½½
         compile("commons-fileupload:commons-fileupload:${commons_fileupload_version}"){
           exclude group: 'commons-io', module: 'commons-io'
         }
         
-        //ÓÃÓÚ±àÂëÓë½âÂë£¬Ö§³ÖDES£¬SHA£¬MD5£¬Base64µÈ
+        //ç”¨äºç¼–ç ä¸è§£ç ï¼Œæ”¯æŒDESï¼ŒSHAï¼ŒMD5ï¼ŒBase64ç­‰
         compile "commons-codec:commons-codec:${commons_codec_version}"
         //compile "org.apache.commons:commons-csv:${commons_csv_version}"
 
-				//°¢Àï¿ªÔ´Êı¾İ¿âÁ¬½Ó³Ø
+        //é˜¿é‡Œå¼€æºæ•°æ®åº“è¿æ¥æ± 
         compile "com.alibaba:druid:${druid_version}"
        
 
         //compile "mysql:mysql-connector-java:${mysql_version}"
         
-        //postgresqlÊı¾İ¿âÁ¬½Ó
+        //postgresqlæ•°æ®åº“è¿æ¥
         compile "org.postgresql:postgresql:${postgresql_version}"
 
         //compile "net.sourceforge.javacsv:javacsv:${javacsv_version}"
