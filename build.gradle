@@ -1,4 +1,4 @@
-def webprojects = [project(':c3-sample-web')]
+def webprojects = [project(':c3-sample-web'), project(':c3-base-menu'), project(':c3-base-log')]
 //def jobprojects = [project(':emis-das-app')]
 
 buildscript {
@@ -32,6 +32,7 @@ allprojects {
     apply plugin: "java"
     //apply plugin: "idea"
     apply plugin: "maven"
+    
 
     //idea.module {
         //excludeDirs += [
@@ -48,6 +49,12 @@ allprojects {
         mavenCentral()
         jcenter()
     }
+    
+    configurations {
+        compile.exclude module: "ch.qos.logback"
+        compile.exclude module: "org.slf4j"
+    }
+
 }
 
 subprojects {
@@ -71,7 +78,7 @@ subprojects {
 
     bootRepackage.enabled = false
 
-    //mainClassName  = 'com.ccscq.emis.Application'
+    mainClassName  = 'com.c3.Application'
 
     //jdk版本
     sourceCompatibility = java_version
@@ -82,8 +89,10 @@ subprojects {
         compileJava.options.encoding = 'UTF-8'
         compileTestJava.options.encoding = 'UTF-8'
     }
-
+    
+ 
     dependencies {
+        
         compile("org.springframework.boot:spring-boot-starter")
         //compile("org.springframework.boot:spring-boot-starter-aop")
         compile("org.springframework.boot:spring-boot-starter-data-jpa"){
@@ -142,25 +151,36 @@ subprojects {
 }
 
 configure(webprojects) { project ->
+  //可以独立发布到第三方容器中
   apply plugin: 'war'
   //apply plugin: "com.gorylenko.gradle-git-properties"
   //apply plugin: 'org.hidetake.ssh'
   bootRepackage.enabled = true
+  
+  springBoot {
+      executable = true
+  }
+
+  bootRepackage.enabled = true
 
   configurations {
     providedRuntime
+    //all*.exclude group: '', module: 'servlet-api'
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-undertow'
   }
 
   dependencies {
-    //providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-    providedRuntime("org.springframework.boot:spring-boot-starter-undertow"){
-      exclude group: 'javax.servlet', module: 'javax.servlet-api'
-    }
+    //必须使用providedRuntime
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    //providedRuntime("org.springframework.boot:spring-boot-starter-undertow"){
+      //exclude group: 'javax.servlet', module: 'javax.servlet-api'
+    //}
     compile("org.springframework.boot:spring-boot-starter-freemarker"){
       exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
       exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-el'
     }
-    //compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-web"){
+    }
 
     //compile "org.apache.shiro:shiro-spring:${shiro_version}"
     //compile "org.apache.shiro:shiro-ehcache:${shiro_version}"
