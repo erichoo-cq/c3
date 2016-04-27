@@ -44,6 +44,10 @@ project(':c3-base-dictionary').projectDir = new File(settingsDir, 'base/dictiona
 include 'c3-base-log'
 project(':c3-base-log').projectDir = new File(settingsDir, 'base/log')
 
+//文件操作工程
+include 'c3-base-file'
+project(':c3-base-file').projectDir = new File(settingsDir, 'base/file')
+
 //示例工程
 include 'c3-sample-web'
 project(':c3-sample-web').projectDir = new File(settingsDir, 'sample/c3-sample-web')

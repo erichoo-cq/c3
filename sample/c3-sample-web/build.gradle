@@ -6,5 +6,6 @@ configurations {
 mainClassName = 'com.c3.sample.web.Application'
 
 dependencies {
-	compile project(":c3-base-menu")
+  compile project(":c3-base-menu")
+  compile project(":c3-base-file")
 }
