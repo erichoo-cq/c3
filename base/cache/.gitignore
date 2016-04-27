@@ -5,8 +5,5 @@ git ignore
 /bin/
 /.gradle/
 /gradle/
-<<<<<<< HEAD
 /.project
-=======
-/.project
->>>>>>> 46d8d82a975fdcc0303618c8a485387a18efef90
+
