@@ -125,7 +125,7 @@ public class L2CacheEhcacheScanner implements ResourceLoaderAware {
                manager.addCache(cache);
             }
             if (!manager.cacheExists("org.hibernate.cache.spi.UpdateTimestampsCache")) {
-               Cache cache = new Cache("org.hibernate.cache.internal.StandardQueryCache", 2500, true, false, 120, 120);
+               Cache cache = new Cache("org.hibernate.cache.spi.UpdateTimestampsCache", 2500, true, false, 120, 120);
                manager.addCache(cache);
             }
          } catch (IOException ex) {
