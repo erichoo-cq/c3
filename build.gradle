@@ -1,4 +1,4 @@
-def webprojects = [project(':c3-sample-web'), project(':c3-base-menu'), project(':c3-base-log'), project(':c3-base-file')]
+def webprojects = [project(':c3-sample-web'), project(':c3-sample-fts'), project(':c3-base-menu'), project(':c3-base-log'), project(':c3-base-file')]
 //def jobprojects = [project(':emis-das-app')]
 
 buildscript {

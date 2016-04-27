@@ -1,0 +1,9 @@
+git ignore
+/build/
+/.settings/
+/.classpath
+/bin/
+/.gradle/
+/gradle/
+/log/
+/.project

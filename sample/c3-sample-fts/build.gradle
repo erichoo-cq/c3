@@ -1,0 +1,4 @@
+dependencies {
+	compile 'org.hibernate:hibernate-search-orm:4.5.3.Final'
+	compile project(":c3-base-menu")
+}
