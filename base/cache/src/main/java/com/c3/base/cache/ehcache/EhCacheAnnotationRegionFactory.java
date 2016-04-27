@@ -30,8 +30,8 @@ public class EhCacheAnnotationRegionFactory extends EhCacheRegionFactory {
    private static final EhCacheMessageLogger LOG = Logger.getMessageLogger(EhCacheMessageLogger.class,
          EhCacheAnnotationRegionFactory.class.getName());
    
-   @Value("${c3_cache.l2cache_ehcache.packagescan:''}")
-   private String packagescan;
+   @Value("${c3_cache.l2cache_ehcache.packagescan:}")
+   private String packagescan = "";
 
    @Override
    public void start(Settings settings, Properties properties) throws CacheException {
