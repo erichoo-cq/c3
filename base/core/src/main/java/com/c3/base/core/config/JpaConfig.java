@@ -12,7 +12,7 @@ import com.c3.base.core.repository.jpa.support.BaseRepositoryFactoryBean;
  * @author heshan
  */
 @Configuration
-@EnableJpaRepositories(basePackages = { "com.c3.**.repository" }, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
+@EnableJpaRepositories(repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
 @EnableTransactionManagement
 public class JpaConfig {
 }
