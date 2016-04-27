@@ -120,6 +120,14 @@ public class L2CacheEhcacheScanner implements ResourceLoaderAware {
                   }
                }
             }
+            if (!manager.cacheExists("org.hibernate.cache.internal.StandardQueryCache")) {
+               Cache cache = new Cache("org.hibernate.cache.internal.StandardQueryCache", 5000, true, false, 600, 600);
+               manager.addCache(cache);
+            }
+            if (!manager.cacheExists("org.hibernate.cache.spi.UpdateTimestampsCache")) {
+               Cache cache = new Cache("org.hibernate.cache.internal.StandardQueryCache", 2500, true, false, 120, 120);
+               manager.addCache(cache);
+            }
          } catch (IOException ex) {
             throw new BeanDefinitionStoreException("I/O failure during classpath scanning", ex);
          }

@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -33,7 +31,7 @@ import com.c3.base.cache.web.PageCacheFilter;
  * @see
  */
 public class EnablePageCacheScanner implements ResourceLoaderAware {
-   private final Log log = LogFactory.getLog(this.getClass());
+//   private final Log log = LogFactory.getLog(this.getClass());
 
    protected ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 

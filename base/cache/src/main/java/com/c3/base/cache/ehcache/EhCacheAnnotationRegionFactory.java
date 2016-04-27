@@ -9,6 +9,7 @@ import org.hibernate.cache.ehcache.EhCacheRegionFactory;
 import org.hibernate.cache.ehcache.internal.util.HibernateEhcacheUtils;
 import org.hibernate.cfg.Settings;
 import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.c3.base.cache.annotation.L2CacheEhcacheScanner;
 
@@ -28,6 +29,9 @@ public class EhCacheAnnotationRegionFactory extends EhCacheRegionFactory {
    private static final long serialVersionUID = 1L;
    private static final EhCacheMessageLogger LOG = Logger.getMessageLogger(EhCacheMessageLogger.class,
          EhCacheAnnotationRegionFactory.class.getName());
+   
+   @Value("${c3_cache.l2cache_ehcache.packagescan:}")
+   private String packagescan;
 
    @Override
    public void start(Settings settings, Properties properties) throws CacheException {
@@ -52,7 +56,7 @@ public class EhCacheAnnotationRegionFactory extends EhCacheRegionFactory {
 
          // 加入注解的扫描,以xml为主
          L2CacheEhcacheScanner scanner = new L2CacheEhcacheScanner();
-         scanner.scan(manager, "com.c3.**.entity");
+         scanner.scan(manager, packagescan.split(","));
          mbeanRegistrationHelper.registerMBean(manager, properties);
       } catch (net.sf.ehcache.CacheException e) {
          if (e.getMessage().startsWith("Cannot parseConfiguration CacheManager. Attempt to create a new instance of "

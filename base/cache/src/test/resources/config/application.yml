@@ -3,9 +3,13 @@ info:
   app_version: 1.0.0
 server:
   port: 8080
-c3_cache.pagecache:
-  enable: true
-  packagescan: com.c3.**.pagecache
+c3_cache:
+  pagecache:
+    enable: true
+    packagescan: com.c3.**.pagecache
+  l2cache_ehcache:
+    packagescan: com.c3.**.entity
+    
 spring:
   aop:
     auto: true
