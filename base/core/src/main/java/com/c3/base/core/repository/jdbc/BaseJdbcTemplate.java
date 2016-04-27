@@ -18,6 +18,13 @@ import org.springframework.util.Assert;
 
 import com.google.common.collect.Lists;
 
+/**
+ * description:
+ *
+ * @version 2016年4月27日 上午10:17:21
+ * @see PgJdbcTemplate 具体实现类
+ * modify content------------author------------date
+ */
 public abstract class BaseJdbcTemplate extends JdbcTemplate {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
