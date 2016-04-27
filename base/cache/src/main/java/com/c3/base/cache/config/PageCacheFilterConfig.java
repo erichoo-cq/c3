@@ -33,7 +33,7 @@ public class PageCacheFilterConfig {
    @Value("${c3_cache.pagecache.enable:false}")
    private boolean enable;
 
-   @Value("${c3_cache.pagecache.packagescan:}")
+   @Value("${c3_cache.pagecache.packagescan:''}")
    private String packagescan;
 
    @Autowired
