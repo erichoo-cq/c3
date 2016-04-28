@@ -40,7 +40,7 @@ public class PageCacheFilterConfig {
    private AutowireCapableBeanFactory beanFactory;
 
    @Bean
-   public FilterRegistrationBean registFilter() {
+   public FilterRegistrationBean registPageCacheFilter() {
       FilterRegistrationBean registration = new FilterRegistrationBean();
       if (enable) {
          PageCacheFilter pageCacheFilter = new PageCacheFilter();
