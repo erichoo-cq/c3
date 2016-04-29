@@ -60,6 +60,7 @@ public class ResourceService {
 			Map<String, Object> menuMap = this.parseMenuToMap(menu);
 			menuMap.put("active", active);
 			menuMap.put("children", this.getNavigationMenu(menuId, activeIds));
+			menuMap.put("permKey", menu.getPermKey());
 			results.add(menuMap);
 		}
 		return results;
@@ -70,6 +71,7 @@ public class ResourceService {
 		String url = menu.getActionUrl();
 		result.put("name", menu.getMenuName());
 		result.put("url", url);
+		result.put("permKey", menu.getPermKey());
 		return result;
 	}
 	

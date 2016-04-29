@@ -20,11 +20,11 @@ import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
-import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.ShiroFilter;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -33,19 +33,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
-/**
- * description: 解析ehcache-shiro配置文件
- *
- * @version 2016年3月17日 下午2:24:01
- * @see
- * modify content------------author------------date
- */
+import com.c3.base.core.permission.shiro.security.AuthenticationFilter;
+
+
 @Configuration
 @ConditionalOnClass(ShiroFilter.class)
 @ConditionalOnProperty(prefix = "shiro", name = "enabled", matchIfMissing = true)
 public class ShiroConfig {
+	@Autowired
+	private net.sf.ehcache.CacheManager ehcacheManager;
 	
-	@Bean
+	@Bean(name = "shiroFilter")
 	@ConditionalOnWebApplication
 	@ConfigurationProperties(prefix = "shiro.filter")
 	public ShiroFilterFactoryBean shiroFilterFactoryBean() {
@@ -53,16 +51,18 @@ public class ShiroConfig {
 		factory.setSecurityManager(securityManager());
 
 		Map<String, Filter> filters = new HashMap<String, Filter>(1);
-		filters.put("authenticationFilter", new FormAuthenticationFilter());
+		filters.put("authenticationFilter", new AuthenticationFilter());
+		
 		factory.setFilters(filters);
-
+		
 		return factory;
 	}
 	
 	@Bean
 	public CacheManager shiroCacheManager() {
 		EhCacheManager cm = new EhCacheManager();
-		cm.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
+		cm.setCacheManager(ehcacheManager);
+		cm.setCacheManagerConfigFile("classpath:config/ehcache.xml");
 		return cm;
 	}
 	

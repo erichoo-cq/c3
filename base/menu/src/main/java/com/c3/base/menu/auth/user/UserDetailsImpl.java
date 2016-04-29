@@ -10,8 +10,13 @@ public class UserDetailsImpl implements UserDetails<Integer, User> {
 
 	private static final long serialVersionUID = 1L;
 
+	//用户
 	private User user;
+	
+	//角色列表
 	private Collection<String> roles = Collections.emptyList();
+	
+	//权限列表
 	private Collection<String> permissions = Collections.emptyList();
 
 	public UserDetailsImpl(User user, Collection<String> roles, Collection<String> permissions) {
@@ -52,7 +57,7 @@ public class UserDetailsImpl implements UserDetails<Integer, User> {
 
 	@Override
 	public String getUsername() {
-		return this.user.getNickName();
+		return this.user.getUserName();
 	}
 
 	@Override

@@ -2,9 +2,12 @@ package com.c3.base.menu.auth.user;
 
 
 public enum UserType {
-	DC(1), // 中心用户
-	RE(2), // 区县用户
-	CO(3);// 企业用户
+	//超级用户
+	Admin(1), 
+	//维护人员
+	Opt(2), 
+	//游客
+	Vistor(3);
 
 	private int type;
 

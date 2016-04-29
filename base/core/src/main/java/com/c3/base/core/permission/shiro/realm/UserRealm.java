@@ -33,7 +33,10 @@ import com.c3.base.core.permission.shiro.service.IUserDetailsService;
 
 
 /**
- * description: 
+ * description: 自定义的用户realm，继承了授权realm，
+ * 主要是扩展了doGetAuthorizationInfo（授权控制，）
+ * 一个是doGetAuthenticationInfo（登录控制）
+ * 
  *
  * @version 2016年3月28日 下午3:19:32
  * @see
@@ -50,7 +53,7 @@ public class UserRealm extends AuthorizingRealm {
 	@Autowired
 	private DefaultWebSecurityManager securityManager;
 	
-	@Autowired(required=false)
+	@Autowired
 	private IUserDetailsService<?, ?> userDetailsService;
 
 	@Autowired
@@ -69,6 +72,13 @@ public class UserRealm extends AuthorizingRealm {
 		}
 	}
 
+	/**
+	 * 将授权信息委托给shiro框架
+	 * 
+	 * @param principals 携带的subject认证信息，主要包含了role以及permission集合
+	 * @return 返回shiro提供的SimpleAuthorizationInfo对象，主要包含了角色以及权限列表
+	 * @see SimpleAuthorizationInfo()
+	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		final UserDetails<?, ?> user = (UserDetails<?, ?>) principals.getPrimaryPrincipal();
@@ -87,7 +97,14 @@ public class UserRealm extends AuthorizingRealm {
 
 		return info;
 	}
-
+	
+	/**
+	 * 进行简单的登录认证
+	 * 
+	 * @param token 需要认证的信息，例如用户名与密码
+	 * @return 返回 SimpleAuthenticationInfo对象
+	 * @see SimpleAuthenticationInfo()
+	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		UsernamePasswordToken credentials = (UsernamePasswordToken) token;

@@ -3,4 +3,4 @@ git ignore
 /.settings/
 /.classpath
 /bin/
-/.classpath
+/.project

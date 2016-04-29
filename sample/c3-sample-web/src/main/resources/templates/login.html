@@ -18,7 +18,7 @@ $(function(){
 	<h1><input type="text" name="username" value="用户名" onFocus="if(value==defaultValue){value='';this.style.color='#fff'}" onBlur="if(!value){value=defaultValue;this.style.color='#e2effb'}"></h1>
     <h1><input type="text" name="password" value="密码" onfocus="if(value==defaultValue){value='';this.type='password';this.style.color='#fff'}" onblur="if(!value){value=defaultValue; this.type='text';this.style.color='#e2effb'}"></h1>
     <h2 class="clearfix">
-    	<a href="#" class="remember clearfix active" id="rememberMe"><b></b><span></span><strong>记住我</strong></a>
+    	<a href="#" class="remember clearfix active" id="rememberMe" name="rememberMe"><b></b><span></span><strong>记住我</strong></a>
         <a href="#" class="forget">忘记密码？</a>
     </h2>
     <#if shiroLoginFailure??>

@@ -16,7 +16,7 @@ public class ShiroTags extends SimpleHash {
 //        put("authenticated", new AuthenticatedTag());
 //        put("guest", new GuestTag());
 //        put("hasAnyRoles", new HasAnyRolesTag());
-//        put("hasPermission", new HasPermissionTag());
+        put("hasPermission", new HasPermissionTag());
 //        put("hasRole", new HasRoleTag());
 //        put("lacksPermission", new LacksPermissionTag());
 //        put("lacksRole", new LacksRoleTag());

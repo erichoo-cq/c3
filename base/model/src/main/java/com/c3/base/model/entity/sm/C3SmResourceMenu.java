@@ -56,6 +56,9 @@ public class C3SmResourceMenu implements Serializable {
 
 	@Column(name = "menu_type")
 	private String menuType;
+	
+	@Column(name = "perm_key")
+	private String permKey;
 
 	private Integer rank;
 
@@ -181,6 +184,14 @@ public class C3SmResourceMenu implements Serializable {
 
 	public void setChildren(Set<C3SmResourceMenu> children) {
 		this.children = children;
+	}
+	
+	public String getPermKey() {
+		return permKey;
+	}
+
+	public void setPermKey(String permKey) {
+		this.permKey = permKey;
 	}
 
 	public C3SmResourceMenu addSmBtSystemMenus(C3SmResourceMenu smBtSystemMenus) {

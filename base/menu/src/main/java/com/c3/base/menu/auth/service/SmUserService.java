@@ -158,8 +158,7 @@ public class SmUserService {
 		jdbc.update(sqlInsertPerson,1,now,full_name,dept_id);
 		List<Map<String,Object>> list = jdbc.queryForList(sqlGetPerson,now,full_name,dept_id);
 		person_id = Integer.parseInt(list.get(0).get("person_id").toString());
-		jdbc.update(sqlInsertUser,user_name,true,false,pwd,
-					0,email,person_id);
+		jdbc.update(sqlInsertUser,user_name,true,false,pwd,0,email,person_id);
 		return 1;
 	}
 	
@@ -239,6 +238,29 @@ public class SmUserService {
 		}
 		i = jdbc.update(sqlUpdate,full_name,phone,personId);
 		return i;
+	}
+	
+	/**
+	 * description: 更新用户密码
+	 * @param filter： 参数信息
+	 * @param userId：用户id
+	 * @return 返回-1表示密码没变，0表示修改成功
+	 * @time: 2016年4月29日 上午9:45:11
+	 */
+	public int updateUserPassword(Map<String,String> filter,Integer userId){
+		C3SmUser sm = smUserRepository.findOne(userId);
+		String pwd = sm.getPassword( );
+		String oldPwd = filter.get("oldPwd");
+		String newPwd = filter.get("newPwd");	
+//		Boolean b = passwordService.passwordsMatch(oldPwd, pwd);
+//		String oldPwdEncrypt = passwordService.encryptPassword(oldPwd);
+//		String s2 = passwordService.encryptPassword(oldPwd);
+		if (!passwordService.passwordsMatch(oldPwd, pwd)) {
+			return -1;
+		}
+		sm.setPassword(passwordService.encryptPassword(newPwd));
+		smUserRepository.save(sm);
+		return 0;
 	}
 	
 }
